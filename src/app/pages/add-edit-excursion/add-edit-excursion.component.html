@@ -1,0 +1,132 @@
+<div class="form-wrapper full-center">
+  <h1>New Excursion Form</h1>
+  <h4>Please fill in all the fields from this form</h4>
+  <div class="form-group">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <span class="flex flex-column gap-2 field-group">
+        <label for="name" class="text-gray-400">Name</label>
+        <input
+          type="text"
+          class="full"
+          pInputText
+          id="name"
+          formControlName="name"
+          aria-describedby="name-help"
+          [ngClass]="{ 'ng-invalid ng-dirty': isNotValidField('name') }"
+        />
+        <small
+          *ngIf="isNotValidField('name')"
+          id="name-help"
+          class="text-red-600"
+          >{{ getFieldErrorTxt("name") }}</small
+        >
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="price" class="text-gray-400">Price</label>
+        <input
+          type="number"
+          class="full"
+          pInputText
+          id="price"
+          formControlName="price"
+          aria-describedby="price-help"
+          [ngClass]="{ 'ng-invalid ng-dirty': isNotValidField('price') }"
+        />
+        <small
+          *ngIf="isNotValidField('price')"
+          id="price-help"
+          class="text-red-600"
+          >{{ getFieldErrorTxt("price") }}</small
+        >
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="description" class="text-gray-400">Description</label>
+        <input
+          type="text"
+          class="full"
+          pInputText
+          id="description"
+          formControlName="description"
+          aria-describedby="description-help"
+          [ngClass]="{ 'ng-invalid ng-dirty': isNotValidField('description') }"
+        />
+        <small
+          *ngIf="isNotValidField('description')"
+          id="description-help"
+          class="text-red-600"
+          >{{ getFieldErrorTxt("description") }}</small
+        >
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="highlights" class="text-gray-400">Highlights</label>
+        <input
+          type="text"
+          class="full"
+          pInputText
+          id="highlights"
+          formControlName="highlights"
+        />
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="fullDescription" class="text-gray-400"
+          >Full Description</label
+        >
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          class="full"
+          id="fullDescription"
+          [autoResize]="true"
+          formControlName="fullDescription"
+        ></textarea>
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="includes" class="text-gray-400">Includes</label>
+        <input
+          type="text"
+          class="full"
+          pInputText
+          id="includes"
+          formControlName="includes"
+        />
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="notSuitableFor" class="text-gray-400"
+          >Not Suitable For</label
+        >
+        <input
+          type="text"
+          class="full"
+          pInputText
+          id="notSuitableFor"
+          formControlName="notSuitableFor"
+        />
+      </span>
+      <span class="flex flex-column gap-2 field-group">
+        <label for="importantInfo" class="text-gray-400"
+          >Important Information</label
+        >
+        <input
+          type="text"
+          class="full"
+          pInputText
+          id="importantInfo"
+          formControlName="importantInfo"
+        />
+      </span>
+      <div class="smt-btn">
+        <p-button type="submit">Add Activity</p-button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <hr />
+    <h5>Form Errors</h5>
+    <pre>{{ form.errors | json }}</pre>
+    <h5>Form invalid</h5>
+    <pre>{{ form.invalid | json }}</pre>
+    <h5>Form value</h5>
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</div>
